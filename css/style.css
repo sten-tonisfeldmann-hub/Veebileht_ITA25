@@ -17,8 +17,10 @@ html, body {
   background-color: #D7D4DA;
 }
 a {
-  color: #ffffff;
+  color: #2f5a7a;
   text-decoration: none;
+  font-family: "Yusei Magic", sans-serif;
+  font-size: large;
 }
 h1 {
   padding-bottom: 20px;
@@ -94,6 +96,7 @@ h2 {
 }
 #navbar ul li a:hover,
 #navbar ul li a.current {
+  border-radius: 200px;
   background: #9FC0D8;
   color: #427AA1;
 }
@@ -149,6 +152,23 @@ h2 {
   width: 100%;
   max-width: 530px;
   margin-top: 10px;
+  border: 10px solid #427AA1;
+  border-radius: 10px;
+}
+#text-kast4 {
+  padding-left: 0px;
+}
+#text-kast4 .info-right {
+  float: right;
+  padding: 8px;
+  width: 59%;
+  min-height: 20%;
+}
+#text-kast4 .pilt img {
+  width: 100%;
+  max-width: 670px;
+  float: left;
+  margin-right: 10px;
   border: 10px solid #427AA1;
   border-radius: 10px;
 }
@@ -218,7 +238,7 @@ h2 {
   transition: background 0.3s ease;
 }
 
-/* Galerii */
+/* --- Sinu olemasolev galerii CSS (jääb samaks) --- */
 #galerii .pilt4 {
   float: right;
   width: 45%;
@@ -246,6 +266,114 @@ h2 {
   max-width: 600px;
   border: 10px solid #427AA1;
   border-radius: 10px;
+}
+
+/* --- UUS: Burger menüü loogika ja asukoht VASAKUL ÜLEVAL --- */
+
+/* Pildi ümbris, mis hoiab nuppu paigal pildi suhtes */
+.pilt-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Peidame checkboxi */
+.menu-checkbox {
+  display: none;
+}
+
+/* Burger nupp - positsioonitud VASAKULE ÜLEVALE */
+.burger-button {
+  position: absolute;
+  top: 25px;   /* 10px sinist raami + 15px pildi seest nihet */
+  left: 25px;  /* 10px sinist raami + 15px pildi seest nihet */
+  width: 40px;
+  height: 35px;
+  background: #427AA1;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 6px;
+  box-sizing: border-box;
+  transition: background 0.3s ease;
+}
+
+.burger-button:hover {
+  background: #2f5a7a;
+}
+
+/* Kolm valget kriipsu */
+.burger-button span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Infoaken - Avaneb nupu alt vasakult */
+.info-panel {
+  position: absolute;
+  top: 70px;
+  left: 25px;
+  width: 220px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #222;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  font-family: sans-serif;
+  z-index: 25;
+  text-align: left; /* Tekst joondub viisakalt vasakule */
+  
+  /* Peitmise animatsioon */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.info-panel h3 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+  color: #427AA1; /* Pealkiri kasutab sinu lehe sinist raamitooni! */
+}
+
+.info-panel hr {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  margin-bottom: 10px;
+}
+
+.info-panel p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+/* --- ANIMATSIOONID (Kui klikitakse) --- */
+
+/* Näitame akent */
+.menu-checkbox:checked ~ .info-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Teeme kolmest kriipsust risti (X) */
+.menu-checkbox:checked ~ .burger-button span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.menu-checkbox:checked ~ .burger-button span:nth-child(2) {
+  opacity: 0;
+}
+.menu-checkbox:checked ~ .burger-button span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 #pildid .small-box {
@@ -454,7 +582,7 @@ footer {
     float: none;
     display: block;
     margin: 0 auto;
-  }
+  } 
 
   /* Galerii piltide kordategemine mobiilis */
   #galerii .pilt4, 
@@ -477,3 +605,4 @@ footer {
     font-size: 30px;
   }
 }
+
