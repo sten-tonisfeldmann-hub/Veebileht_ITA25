@@ -1,0 +1,55 @@
+<html lang="et">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/8b594e59a5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Eesti Autod | Galerii</title>
+</head>
+<body>
+    <header>
+        <!----Navbar mida kasutada navigeerimiseks-->
+        <nav id="navbar">
+            <div class="container-header">
+                <h1>Eesti autod</h1>
+                <ul>
+                    <li><a href="index.html">Avaleht</a></li>
+                    <li><a href="main.html">Sisu</a></li>
+                    <li><a href="gallery.html">Galerii</a></li>
+                    <li><a class="current" href="contact.html">Kontakt</a></li>
+                    <li><a href="https://register.evkl.ee/apex/f?p=888:8:::::: " target="_blank">Auto pildid</a></li>
+                  </ul>
+            </div>
+        </nav>
+    </header>
+  <!--- ou kuule kontakti mind siit pls-->
+  <section id="kontakt-vorm">
+    <div class="vormi-konteiner">
+        <h2>Võta ühendust</h2>
+        
+        <form action="#" method="POST">
+            
+            <div class="sisend-grupp">
+                <label for="nimi">Nimi</label>
+                <input type="text" id="nimi" name="nimi" required placeholder="Sinu nimi">
+            </div>
+            
+            <div class="sisend-grupp">
+                <label for="email">E-post</label>
+                <input type="email" id="email" name="email" required placeholder="sinu@email.ee">
+            </div>
+            
+            <div class="sisend-grupp">
+                <label for="sonum">Sõnum</label>
+                <textarea id="sonum" name="sonum" rows="5" required placeholder="Kirjuta oma küsimus või sõnum siia..."></textarea>
+            </div>
+            
+            <button type="submit" class="saada-nupp">Saada sõnum</button>
+            
+        </form>
+    </div>
+</section>
+
+</body>
+</html>
